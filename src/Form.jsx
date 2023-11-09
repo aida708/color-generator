@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 
 //set-up a color state value and a form with an 2 input fields(color,text)
-export default function Form() {
+export default function Form({ addColor }) {
   const [color, setColor] = useState("");
   const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
+    e.preventDefault();
+    addColor(color);
+    //reset the values of the inputs to empty strings after submitting
     setColor(e.target.value);
   };
   //   handleChange = () => {};
